@@ -4,6 +4,7 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
+        <a href="https://laravel.com/docs"><button class='btn btn-default'>Docs</button></a>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
               <a class="navbar-brand" href="#">Navbar</a>
