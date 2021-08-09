@@ -4,9 +4,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateContentsTable extends Migration
+class CreateContentDetailsTable extends Migration
 {
-    protected $set_schema_table = 'contents';
+    protected $set_schema_table = 'content_details';
 
     /**
      * Run the migrations.
@@ -21,14 +21,18 @@ class CreateContentsTable extends Migration
 
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->id();
-            $table->dateTime('release_datetime')
+            $table->string('title')
             ->nullable();
-            $table->unsignedBigInteger('user_id');
-            $table->timestamps();
+            $table->string('description')
+            ->nullable();
+            $table->unsignedInteger('category_id')
+            ->nullable();
+            $table->string('img_path')
+            ->nullable();
 
-            $table->foreign('user_id')
+            $table->foreign('category_id')
             ->references('id')
-            ->on('users')
+            ->on('content_categories')
             ->OnDelete('cascade');
         });
     }
