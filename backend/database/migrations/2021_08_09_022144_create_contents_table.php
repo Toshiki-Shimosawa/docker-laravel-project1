@@ -4,9 +4,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateContentsTable extends Migration
 {
-    protected $set_schema_table = 'users';
+    protected $set_schema_table = 'contents';
 
     /**
      * Run the migrations.
@@ -17,11 +17,15 @@ class CreateUsersTable extends Migration
     {
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->rememberToken();
+            $table->dateTime('released_at')
+            ->nullable();
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
+
+            $table->foreign('user_id')
+            ->references('id')
+            ->on('users')
+            ->OnDelete('cascade');
         });
     }
 
