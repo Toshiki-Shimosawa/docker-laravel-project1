@@ -17,7 +17,7 @@ class CreateContentsTable extends Migration
     {
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->id();
-            $table->dateTime('released_at')
+            $table->dateTime('release_datetime')
             ->nullable();
             $table->unsignedBigInteger('user_id');
             $table->timestamps();

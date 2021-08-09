@@ -2,12 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Routing\Controller as BaseController;
+use App\Models\Content\Content;
+use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 
-class Controller extends Controller
+use App\Models\Helper\DateTimeHelper;
+
+class TopController extends Controller
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    public function index()
+    {
+        $now = Carbon::now();
+
+        $contents = Content::where('release_datetime', '>=', DateTimeHelper::dateTimeParameter($now));
+
+        return view('index');
+    }
 }
