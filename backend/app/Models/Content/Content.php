@@ -16,4 +16,27 @@ class Content extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function detail()
+    {
+        return $this->hasOne(ContentDetail::class, 'parent_id');
+    }
+
+    public function getDetailTitle()
+    {
+        return $this->detail
+        ->title;
+    }
+
+    public function getDetailDescription()
+    {
+        return $this->detail
+        ->description;
+    }
+
+    public function getDetailImagePath()
+    {
+        return $this->detail
+        ->img_path;
+    }
 }

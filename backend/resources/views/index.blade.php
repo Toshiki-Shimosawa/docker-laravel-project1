@@ -28,10 +28,10 @@
             <div class="left_contents">
                 @foreach ($contents as $content)
                     <section class="card">
-                        <img class="card-img" src="https://www.yanmo.co.jp/diarypro/smsg/upfile/653-1.jpg" alt="">
+                        <img class="card-img" src="{{ $content->getDetailImagePath() }}" alt="">
                         <div class="card-content">
-                        <h1 class="card-title">Webクリエイターボックス</h1>
-                        <p class="card-text">WebデザインやWebサイト制作、最新のWeb業界情報などを紹介していくサイト。</p>
+                        <h1 class="card-title">{{ $content->getDetailTitle() }}</h1>
+                        <p class="card-text">{{ $content->getDetailDescription() }}</p>
                         </div>
                     </section>
                 @endforeach
