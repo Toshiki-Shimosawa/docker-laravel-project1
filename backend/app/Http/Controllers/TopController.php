@@ -13,9 +13,11 @@ class TopController extends Controller
     public function index()
     {
         $now = Carbon::now();
+        $contents = Content::where('release_datetime', '<=', DateTimeHelper::dateTimeParameter($now))
+        ->get();
 
-        $contents = Content::where('release_datetime', '>=', DateTimeHelper::dateTimeParameter($now));
-
-        return view('index');
+        return view('index')->with([
+            'contents' => $contents
+        ]);
     }
 }

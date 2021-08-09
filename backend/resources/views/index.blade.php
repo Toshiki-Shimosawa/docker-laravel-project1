@@ -26,27 +26,15 @@
         </header>
         <main>
             <div class="left_contents">
-                <section class="card">
-                    <img class="card-img" src="https://www.yanmo.co.jp/diarypro/smsg/upfile/653-1.jpg" alt="">
-                    <div class="card-content">
-                      <h1 class="card-title">Webクリエイターボックス</h1>
-                      <p class="card-text">WebデザインやWebサイト制作、最新のWeb業界情報などを紹介していくサイト。</p>
-                    </div>
-                </section>
-                <section class="card">
-                    <img class="card-img" src="https://www.yanmo.co.jp/diarypro/smsg/upfile/653-1.jpg" alt="">
-                    <div class="card-content">
-                      <h1 class="card-title">Webクリエイターボックス</h1>
-                      <p class="card-text">WebデザインやWebサイト制作、最新のWeb業界情報などを紹介していくサイト。</p>
-                    </div>
-                </section>
-                <section class="card">
-                    <img class="card-img" src="https://www.yanmo.co.jp/diarypro/smsg/upfile/653-1.jpg" alt="">
-                    <div class="card-content">
-                      <h1 class="card-title">Webクリエイターボックス</h1>
-                      <p class="card-text">WebデザインやWebサイト制作、最新のWeb業界情報などを紹介していくサイト。</p>
-                    </div>
-                </section>
+                @foreach ($contents as $content)
+                    <section class="card">
+                        <img class="card-img" src="https://www.yanmo.co.jp/diarypro/smsg/upfile/653-1.jpg" alt="">
+                        <div class="card-content">
+                        <h1 class="card-title">Webクリエイターボックス</h1>
+                        <p class="card-text">WebデザインやWebサイト制作、最新のWeb業界情報などを紹介していくサイト。</p>
+                        </div>
+                    </section>
+                @endforeach
             </div>
             <div class="right_contents">
                 bbb
