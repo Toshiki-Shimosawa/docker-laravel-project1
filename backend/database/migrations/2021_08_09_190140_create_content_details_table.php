@@ -25,10 +25,17 @@ class CreateContentDetailsTable extends Migration
             ->nullable();
             $table->string('description')
             ->nullable();
+            $table->unsignedInteger('parent_id')
+            ->nullable();
             $table->unsignedInteger('category_id')
             ->nullable();
             $table->string('img_path')
             ->nullable();
+
+            $table->foreign('parent_id')
+            ->references('id')
+            ->on('contents')
+            ->OnDelete('cascade');
 
             $table->foreign('category_id')
             ->references('id')
