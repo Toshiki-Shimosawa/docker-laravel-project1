@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\TopController;
+use App\Http\Controllers\Admin\TopController as AdminTopController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,9 @@ use App\Http\Controllers\TopController;
 |
 */
 
+
 Route::get('/', [TopController::class, 'index']);
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/', [AdminTopController::class, 'index']);
+});

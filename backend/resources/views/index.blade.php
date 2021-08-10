@@ -28,7 +28,7 @@
             <div class="left_contents">
                 @foreach ($contents as $content)
                     <section class="card">
-                        <img class="card-img" src="{{ $content->getDetailImagePath() }}" alt="">
+                        <img class="card-img" src="{{ $content->getDetailDescription() }}" alt="">
                         <div class="card-content">
                         <h1 class="card-title">{{ $content->getDetailTitle() }}</h1>
                         <p class="card-text">{{ $content->getDetailDescription() }}</p>
