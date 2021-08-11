@@ -21,10 +21,16 @@
                 </ul>
             </div>
             <div class="contents">
-
-                    <div class="new_button">
-                        <a>新規投稿</a>
+                <div id="new_button" class="new_button">
+                    <a>新規投稿</a>
+                </div>
+            </div>
+            <div id="modal" class="modal_background">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h1>hello</h1>
                     </div>
+                </div>
             </div>
         </main>
         <footer>
