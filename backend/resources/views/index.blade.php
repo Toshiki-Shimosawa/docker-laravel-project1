@@ -37,12 +37,10 @@
                 @endforeach
             </div>
             <div class="right_contents">
-                bbb
             </div>
 
         </main>
         <footer>
-
         </footer>
     </body>
 </html>
