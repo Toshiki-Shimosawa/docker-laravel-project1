@@ -28,7 +28,15 @@
             <div id="modal" class="modal_background">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <h1>hello</h1>
+                        <h1 class="new_form_title">新規投稿</h1>
+
+                        {!! Form::open(['url' => 'admin/new', 'method' => 'post']) !!}
+                        {!! Form::label('title', '記事タイトル') !!} <br>
+                        {!! Form::text('title') !!} <br>
+                        {!! Form::label('description', '説明') !!} <br>
+                        {!! Form::textarea('description', null, ['placeholder' => '入力してください', 'rows' => '5']) !!} <br>
+                        {!! Form::submit('登録') !!}
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>

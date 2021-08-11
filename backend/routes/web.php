@@ -21,4 +21,5 @@ Route::get('/', [TopController::class, 'index']);
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', [AdminTopController::class, 'index']);
+    Route::post('/new', [AdminTopController::class, 'postNew']);
 });
