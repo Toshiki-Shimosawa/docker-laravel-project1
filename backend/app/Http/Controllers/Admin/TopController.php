@@ -21,5 +21,6 @@ class TopController extends Controller
     public function postNew(Request $request)
     {
         \Log::debug($request);
+        return view('admin/index');
     }
 }

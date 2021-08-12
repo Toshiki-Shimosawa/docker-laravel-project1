@@ -1,6 +1,7 @@
 <html>
     <head>
         <meta charset=”UTF-8″>
+        <meta name="csrf_token" content="{{ csrf_token() }}">
         <title>管理画面 - FUKUSHIMA_BASE</title>
         <link href="{{ asset('css/block/navbar.css') }}" type="text/css" rel="stylesheet">
         <link href="{{ asset('css/admin/top.css') }}" type="text/css" rel="stylesheet">
@@ -35,8 +36,7 @@
                         {!! Form::text('title') !!} <br>
                         {!! Form::label('description', '説明') !!} <br>
                         {!! Form::textarea('description', null, ['placeholder' => '入力してください', 'rows' => '5']) !!} <br>
-                        {!! Form::submit('登録') !!}
-                        {!! Form::close() !!}
+                        {!! Form::button('登録', ['id' => 'submit_btn', 'type' => 'button']) !!}
                     </div>
                 </div>
             </div>
