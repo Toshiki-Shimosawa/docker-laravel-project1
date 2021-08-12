@@ -33,9 +33,9 @@
 
                         {!! Form::open(['url' => 'admin/new', 'method' => 'post']) !!}
                         {!! Form::label('title', '記事タイトル') !!} <br>
-                        {!! Form::text('title') !!} <br>
+                        {!! Form::text('title', null, ['id' => 'article_title']) !!} <br>
                         {!! Form::label('description', '説明') !!} <br>
-                        {!! Form::textarea('description', null, ['placeholder' => '入力してください', 'rows' => '5']) !!} <br>
+                        {!! Form::textarea('description', null, ['id' => 'article_description', 'placeholder' => '入力してください', 'rows' => '5']) !!} <br>
                         {!! Form::button('登録', ['id' => 'submit_btn', 'type' => 'button']) !!}
                     </div>
                 </div>

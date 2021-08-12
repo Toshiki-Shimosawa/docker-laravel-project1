@@ -15,7 +15,15 @@ if (e) {
         const httpRequest = new XMLHttpRequest();
         httpRequest.open('post', 'admin/new', true);
 
-        var data = 'title=aaaaa&description=bbbbb';
+        var article_title = (<HTMLFormElement>document.getElementById('article_title')).value;
+        var article_description = (<HTMLFormElement>document.getElementById('article_description')).value;
+
+        var data = getRequestParameterByArticleTileArticleDescription(article_title, article_description);
+
+        function getRequestParameterByArticleTileArticleDescription(article_title:HTMLFormElement, article_description:HTMLFormElement) {
+            return 'article_title' + '=' + article_title + '&' + 'article_description' + '=' + article_description;
+        }
+
 
         httpRequest.onreadystatechange = () => {
             if (httpRequest.readyState === 4 && httpRequest.status === 200) {
@@ -27,14 +35,9 @@ if (e) {
             }
         }
 
-        console.log('ここ');
-        console.log(csrf_token);
-        console.log('ここまで');
-
         httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         httpRequest.setRequestHeader('X-CSRF-Token', csrf_token);
 
         httpRequest.send(data);
-        window.alert('非同期');
     })
 }
