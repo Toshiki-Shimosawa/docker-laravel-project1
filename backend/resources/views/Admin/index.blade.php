@@ -31,11 +31,19 @@
                     <div class="modal-body">
                         <h1 class="new_form_title">新規投稿</h1>
 
+                        @inject ( 'dateTimeHelper', 'App\Models\Helper\DateTimeHelper' )
+
                         {!! Form::open(['url' => 'admin/new', 'method' => 'post']) !!}
                         {!! Form::label('title', '記事タイトル') !!} <br>
                         {!! Form::text('title', null, ['id' => 'article_title']) !!} <br>
                         {!! Form::label('description', '説明') !!} <br>
                         {!! Form::textarea('description', null, ['id' => 'article_description', 'placeholder' => '入力してください', 'rows' => '5']) !!} <br>
+                        {!! Form::label('release_date_time', '公開日時') !!} <br>
+                        {!! Form::date('release_date_time', $dateTimeHelper::dateParameter(\Carbon\Carbon::now())) !!} <br>
+                        {!! Form::label('category_id', 'カテゴリ') !!} <br>
+                        {!! Form::select('category_id', [1=>'グルメ', 2=>'お店',3=>'イベント',4=>'フォト'], 1) !!} <br>
+                        {!! Form::label('img_path', '画像URL') !!} <br>
+                        {!! Form::text('img_path', null, ['id' => 'img_path']) !!} <br>
                         {!! Form::button('登録', ['id' => 'submit_btn', 'type' => 'button']) !!}
                     </div>
                 </div>
