@@ -17,11 +17,24 @@ if (e) {
 
         var article_title = (<HTMLFormElement>document.getElementById('article_title')).value;
         var article_description = (<HTMLFormElement>document.getElementById('article_description')).value;
+        var release_date_time = (<HTMLFormElement>document.getElementById('release_date_time')).value;
+        var category_id = (<HTMLFormElement>document.getElementById('category_id')).value;
+        var img_path = (<HTMLFormElement>document.getElementById('img_path')).value;
 
-        var data = getRequestParameterByArticleTileArticleDescription(article_title, article_description);
+        let data_list = new Map<string, string | number>([
+            ['article_title', article_title],
+            ['article_description', article_description],
+            ['release_date_time', release_date_time],
+            ['category_id', category_id],
+            ['img_path', img_path]
+        ]);
 
-        function getRequestParameterByArticleTileArticleDescription(article_title:HTMLFormElement, article_description:HTMLFormElement) {
-            return 'article_title' + '=' + article_title + '&' + 'article_description' + '=' + article_description;
+        function getRequestParameter()
+        {
+            data_list.forEach((value, key) => {
+                console.log(key);
+                console.log(value);
+            });
         }
 
 
@@ -37,7 +50,7 @@ if (e) {
 
         httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         httpRequest.setRequestHeader('X-CSRF-Token', csrf_token);
-
-        httpRequest.send(data);
+        getRequestParameter();
+        //httpRequest.send(data);
     })
 }

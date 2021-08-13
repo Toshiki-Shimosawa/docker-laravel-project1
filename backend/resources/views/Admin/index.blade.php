@@ -39,9 +39,9 @@
                         {!! Form::label('description', '説明') !!} <br>
                         {!! Form::textarea('description', null, ['id' => 'article_description', 'placeholder' => '入力してください', 'rows' => '5']) !!} <br>
                         {!! Form::label('release_date_time', '公開日時') !!} <br>
-                        {!! Form::date('release_date_time', $dateTimeHelper::dateParameter(\Carbon\Carbon::now())) !!} <br>
+                        {!! Form::date('release_date_time', $dateTimeHelper::dateParameter(\Carbon\Carbon::now()), ['id' => 'release_date_time']) !!} <br>
                         {!! Form::label('category_id', 'カテゴリ') !!} <br>
-                        {!! Form::select('category_id', [1=>'グルメ', 2=>'お店',3=>'イベント',4=>'フォト'], 1) !!} <br>
+                        {!! Form::select('category_id', [1=>'グルメ', 2=>'お店',3=>'イベント',4=>'フォト'], 1, ['id' => 'category_id']) !!} <br>
                         {!! Form::label('img_path', '画像URL') !!} <br>
                         {!! Form::text('img_path', null, ['id' => 'img_path']) !!} <br>
                         {!! Form::button('登録', ['id' => 'submit_btn', 'type' => 'button']) !!}
