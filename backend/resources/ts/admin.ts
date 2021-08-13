@@ -32,17 +32,11 @@ if (e) {
         function getRequestParameter()
         {
             var request_parameter: string = '';
-            var is_first_parameter = true;
 
             data_list.forEach((value, key) => {
-                if (is_first_parameter) {
-                    request_parameter = request_parameter.concat(`${key}=${value}`);
-                    is_first_parameter = false;
-                }
-                else {
-                    request_parameter = request_parameter.concat(`&${key}=${value}`);
-                }
+                request_parameter = request_parameter.concat(`${key}=${value}&`);
             });
+
             return request_parameter;
         }
 
