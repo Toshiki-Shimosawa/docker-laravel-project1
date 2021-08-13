@@ -24,7 +24,7 @@ class TopController extends Controller
         \Log::debug($request);
 
         $content = new Content();
-        $content->release_date_time = $request->release_date_time;
+        $content->release_datetime = $request->release_date_time;
         $content->user_id = 1; //仮おき
         $content->save();
 
@@ -35,7 +35,7 @@ class TopController extends Controller
         $content_detail->category_id = $request->category_id;
         $content_detail->img_path = $request->img_path;
 
-        $content->save();
+        $content_detail->save();
 
         return view('admin/index');
     }

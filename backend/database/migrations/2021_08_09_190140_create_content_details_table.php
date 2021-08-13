@@ -20,17 +20,17 @@ class CreateContentDetailsTable extends Migration
         }
 
         Schema::create($this->set_schema_table, function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('title')
             ->nullable();
             $table->string('description')
             ->nullable();
-            $table->unsignedInteger('parent_id')
-            ->nullable();
-            $table->unsignedInteger('category_id')
+            $table->unsignedBigInteger('parent_id');
+            $table->unsignedBigInteger('category_id')
             ->nullable();
             $table->string('img_path')
             ->nullable();
+            $table->timestamps();
 
             $table->foreign('parent_id')
             ->references('id')

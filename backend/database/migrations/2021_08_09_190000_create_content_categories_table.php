@@ -20,7 +20,7 @@ class CreateContentCategoriesTable extends Migration
         }
 
         Schema::create($this->set_schema_table, function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('name')
             ->nullable();
             $table->integer('sort');

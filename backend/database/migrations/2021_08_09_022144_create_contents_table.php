@@ -20,7 +20,7 @@ class CreateContentsTable extends Migration
         }
 
         Schema::create($this->set_schema_table, function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->dateTime('release_datetime')
             ->nullable();
             $table->unsignedBigInteger('user_id');
