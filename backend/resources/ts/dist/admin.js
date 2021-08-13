@@ -23,10 +23,18 @@ if (e) {
             ['img_path', img_path]
         ]);
         function getRequestParameter() {
+            var request_parameter = '';
+            var is_first_parameter = true;
             data_list.forEach(function (value, key) {
-                console.log(key);
-                console.log(value);
+                if (is_first_parameter) {
+                    request_parameter = request_parameter.concat(key + "=" + value);
+                    is_first_parameter = false;
+                }
+                else {
+                    request_parameter = request_parameter.concat("&" + key + "=" + value);
+                }
             });
+            return request_parameter;
         }
         httpRequest.onreadystatechange = function () {
             if (httpRequest.readyState === 4 && httpRequest.status === 200) {
@@ -38,7 +46,7 @@ if (e) {
         };
         httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         httpRequest.setRequestHeader('X-CSRF-Token', csrf_token);
-        getRequestParameter();
-        //httpRequest.send(data);
+        var request_parameter = getRequestParameter();
+        httpRequest.send(request_parameter);
     });
 }
