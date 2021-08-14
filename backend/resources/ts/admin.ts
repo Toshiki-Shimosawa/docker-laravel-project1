@@ -40,14 +40,10 @@ if (e) {
             return request_parameter;
         }
 
-
         httpRequest.onreadystatechange = () => {
             if (httpRequest.readyState === 4 && httpRequest.status === 200) {
-                const jsonText = httpRequest.responseText;
-                console.log(jsonText);
-                // const json = JSON.parse(jsonText);
-
                 alert('登録が完了しました');
+                modal.style.display = 'none';
             }
         }
 
