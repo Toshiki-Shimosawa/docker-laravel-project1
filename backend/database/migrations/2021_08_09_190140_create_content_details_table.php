@@ -35,12 +35,12 @@ class CreateContentDetailsTable extends Migration
             $table->foreign('parent_id')
             ->references('id')
             ->on('contents')
-            ->OnDelete('cascade');
+            ->onDelete('cascade');
 
             $table->foreign('category_id')
             ->references('id')
             ->on('content_categories')
-            ->OnDelete('cascade');
+            ->onDelete('cascade');
         });
     }
 

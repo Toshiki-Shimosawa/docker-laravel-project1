@@ -48,6 +48,16 @@ class TopController extends Controller
 
         $content_detail->save();
 
-        return view('admin/index');
+        $now = Carbon::now();
+        $contents = Content::with([
+            'detail',
+            'detail.category'
+        ])
+        ->where('release_datetime', '<=', DateTimeHelper::dateTimeParameter($now))
+        ->get();
+
+        return view('admin/index')->with([
+            'contents' => $contents,
+        ]);
     }
 }

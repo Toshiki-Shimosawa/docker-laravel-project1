@@ -29,7 +29,7 @@ class CreateContentsTable extends Migration
             $table->foreign('user_id')
             ->references('id')
             ->on('users')
-            ->OnDelete('cascade');
+            ->onDelete('cascade');
         });
     }
 
