@@ -23,4 +23,10 @@ class ContentDetail extends Model
     {
         return $this->belongsTo(ContentCategory::class, 'category_id');
     }
+
+    public function getCategoryName()
+    {
+        return $this->category
+        ->name;
+    }
 }

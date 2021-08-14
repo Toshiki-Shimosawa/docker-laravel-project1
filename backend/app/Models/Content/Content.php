@@ -39,4 +39,10 @@ class Content extends Model
         return $this->detail
         ->img_path;
     }
+
+    public function getDetailCategoryName()
+    {
+        return $this->detail
+        ->getCategoryName();
+    }
 }

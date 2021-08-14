@@ -72,9 +72,22 @@ main {
     background-color: rgba(0,0,0,0.5);
 }
 
-.modal-content{
+.modal-content {
     background-color: white;
-    width: 60%;
-    height: 60%;
+    width: 50%;
+    height: auto;
     margin: 10% auto;
+    padding: 5%;
+}
+
+.modal-content *{
+    margin-bottom: 15px;
+}
+
+.contents_table {
+    border-collapse: collapse;
+}
+
+.contents_table th, td {
+    border: solid 1px #000000;
 }

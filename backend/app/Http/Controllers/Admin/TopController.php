@@ -16,7 +16,18 @@ class TopController extends Controller
 {
     public function index()
     {
-        return view('admin/index');
+        $now = Carbon::now();
+
+        $contents = Content::with([
+            'detail',
+            'detail.category'
+        ])
+        ->where('release_datetime', '<=', DateTimeHelper::dateTimeParameter($now))
+        ->get();
+
+        return view('admin/index')->with([
+            'contents' => $contents,
+        ]);
     }
 
     public function postNew(Request $request)
