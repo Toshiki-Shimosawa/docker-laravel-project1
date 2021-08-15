@@ -30,14 +30,16 @@ if (e) {
             return request_parameter;
         }
         httpRequest.onreadystatechange = function () {
-            if (httpRequest.readyState === 4 && httpRequest.status === 200) {
-                alert('登録が完了しました');
-                modal.style.display = 'none';
-                location.reload();
-            }
-            else {
-                alert('正常に登録ができませんでした。管理者にお問い合わせください。');
-                modal.style.display = 'none';
+            if (httpRequest.readyState === 4) {
+                if (httpRequest.status === 200) {
+                    alert('登録が完了しました');
+                    modal.style.display = 'none';
+                    location.reload();
+                }
+                else {
+                    alert('正常に登録ができませんでした。管理者にお問い合わせください。');
+                    modal.style.display = 'none';
+                }
             }
         };
         httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
