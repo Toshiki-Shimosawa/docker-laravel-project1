@@ -16,13 +16,10 @@ class TopController extends Controller
 {
     public function index()
     {
-        $now = Carbon::now();
-
         $contents = Content::with([
             'detail',
             'detail.category'
         ])
-        ->where('release_datetime', '<=', DateTimeHelper::dateTimeParameter($now))
         ->get();
 
         return view('admin/index')->with([
@@ -32,8 +29,6 @@ class TopController extends Controller
 
     public function postNew(Request $request)
     {
-        \Log::debug($request);
-
         $content = new Content();
         $content->release_datetime = $request->release_date_time;
         $content->user_id = 1; //仮おき
@@ -48,12 +43,10 @@ class TopController extends Controller
 
         $content_detail->save();
 
-        $now = Carbon::now();
         $contents = Content::with([
             'detail',
             'detail.category'
         ])
-        ->where('release_datetime', '<=', DateTimeHelper::dateTimeParameter($now))
         ->get();
 
         return view('admin/index')->with([

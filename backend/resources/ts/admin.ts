@@ -44,6 +44,11 @@ if (e) {
             if (httpRequest.readyState === 4 && httpRequest.status === 200) {
                 alert('登録が完了しました');
                 modal.style.display = 'none';
+                location.reload();
+            }
+            else {
+                alert('正常に登録ができませんでした。管理者にお問い合わせください。');
+                modal.style.display = 'none';
             }
         }
 
