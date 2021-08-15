@@ -34,6 +34,7 @@
                             <th>表示日</th>
                             <th>作成日</th>
                             <th>更新日</th>
+                            <th>操作</th>
                         </tr>
                         @foreach ($contents as $content)
                             <tr>
@@ -46,6 +47,9 @@
                                 <td>{{ $content->release_datetime }}</td>
                                 <td>{{ $content->created_at }}</td>
                                 <td>{{ $content->updated_at }}</td>
+                                <td>
+                                    <a href="" class="edit_btn">編集</a>
+                                </td>
                             </tr>
                         @endforeach
 

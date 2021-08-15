@@ -88,6 +88,20 @@ main {
     border-collapse: collapse;
 }
 
+.contents_table th {
+    background-color: rgb(60, 128, 175);
+    color: #ffffff;
+}
+
 .contents_table th, td {
     border: solid 1px #000000;
+}
+.edit_btn {
+    border: solid 1px #000000;
+    background-color: rgb(60, 128, 175);
+    font-size:15px;
+    text-decoration: none;
+    color: #ffffff;
+    padding: 3px;
+    margin: 10px 10px;
 }
