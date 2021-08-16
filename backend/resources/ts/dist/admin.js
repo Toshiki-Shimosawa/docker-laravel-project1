@@ -1,7 +1,10 @@
+"use strict";
+exports.__esModule = true;
+exports.createEditFormByContentsParam = void 0;
 var new_button = document.getElementById('new_button');
-var modal = document.getElementById('modal');
+var new_modal = document.getElementById('new_modal');
 new_button.addEventListener('click', function () {
-    modal.style.display = 'block';
+    new_modal.style.display = 'block';
 });
 var target_id = 'submit_btn';
 var e = document.getElementById(target_id);
@@ -33,12 +36,12 @@ if (e) {
             if (httpRequest.readyState === 4) {
                 if (httpRequest.status === 200) {
                     alert('登録が完了しました');
-                    modal.style.display = 'none';
+                    new_modal.style.display = 'none';
                     location.reload();
                 }
                 else {
                     alert('正常に登録ができませんでした。管理者にお問い合わせください。');
-                    modal.style.display = 'none';
+                    new_modal.style.display = 'none';
                 }
             }
         };
@@ -48,3 +51,8 @@ if (e) {
         httpRequest.send(request_parameter);
     });
 }
+function createEditFormByContentsParam(contents_param) {
+    console.log('createEditFormByContentsId');
+    console.log(contents_param);
+}
+exports.createEditFormByContentsParam = createEditFormByContentsParam;

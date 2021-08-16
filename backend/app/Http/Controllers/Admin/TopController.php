@@ -53,4 +53,10 @@ class TopController extends Controller
             'contents' => $contents,
         ]);
     }
+
+    public function edit()
+    {
+
+
+    }
 }

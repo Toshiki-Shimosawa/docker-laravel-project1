@@ -1,8 +1,8 @@
 var new_button:HTMLDivElement = <HTMLDivElement>document.getElementById('new_button');
-var modal:HTMLDivElement = <HTMLDivElement>document.getElementById('modal');
+var new_modal:HTMLDivElement = <HTMLDivElement>document.getElementById('new_modal');
 
 new_button.addEventListener('click', function() {
-    modal.style.display = 'block';
+    new_modal.style.display = 'block';
 })
 
 const target_id = 'submit_btn';
@@ -44,12 +44,12 @@ if (e) {
             if (httpRequest.readyState === 4) {
                 if (httpRequest.status === 200) {
                     alert('登録が完了しました');
-                    modal.style.display = 'none';
+                    new_modal.style.display = 'none';
                     location.reload();
                 }
                 else {
                     alert('正常に登録ができませんでした。管理者にお問い合わせください。');
-                    modal.style.display = 'none';
+                    new_modal.style.display = 'none';
                 }
             }
         }
@@ -61,3 +61,10 @@ if (e) {
         httpRequest.send(request_parameter);
     })
 }
+
+export function createEditFormByContentsParam(contents_param: Map<string, string | number>)
+{
+    console.log('createEditFormByContentsId');
+    console.log(contents_param);
+}
+
