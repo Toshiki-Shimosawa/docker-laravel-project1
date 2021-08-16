@@ -29,4 +29,10 @@ class ContentDetail extends Model
         return $this->category
         ->name;
     }
+
+    public function getCategoryId()
+    {
+        return $this->category
+        ->id;
+    }
 }

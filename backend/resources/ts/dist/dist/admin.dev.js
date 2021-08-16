@@ -1,5 +1,7 @@
 "use strict";
 
+exports.__esModule = true;
+exports.createEditFormByContentsParam = void 0;
 var new_button = document.getElementById('new_button');
 var new_modal = document.getElementById('new_modal');
 new_button.addEventListener('click', function () {
@@ -48,5 +50,23 @@ if (e) {
   });
 }
 
-function createEditFormByContentsId(contents_param) {//
+function createEditFormByContentsParam(contents_param) {
+  document.getElementById('edit_title').value = contents_param.get('title');
+  document.getElementById('edit_description').value = contents_param.get('description');
+
+  var _target_date = new Date(contents_param.get('release_datetime'));
+
+  var year = _target_date.getFullYear();
+
+  var month = ('0' + _target_date.getMonth()).slice(-2);
+
+  var date = _target_date.getDate();
+
+  var target_date = year + '-' + month + '-' + date;
+  document.getElementById('edit_release_datetime').value = target_date;
+  var category_name = document.getElementById('edit_category_id').querySelector("option[value='" + contents_param.get('category_id') + "']");
+  category_name.setAttribute('selected', 'selected');
+  document.getElementById('edit_img_path').value = contents_param.get('img_path');
 }
+
+exports.createEditFormByContentsParam = createEditFormByContentsParam;

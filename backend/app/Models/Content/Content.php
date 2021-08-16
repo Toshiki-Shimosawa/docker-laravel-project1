@@ -45,4 +45,10 @@ class Content extends Model
         return $this->detail
         ->getCategoryName();
     }
+
+    public function getDetailCategoryId()
+    {
+        return $this->detail
+        ->getCategoryId();
+    }
 }

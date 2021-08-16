@@ -64,7 +64,19 @@ if (e) {
 
 export function createEditFormByContentsParam(contents_param: Map<string, string | number>)
 {
-    console.log('createEditFormByContentsId');
-    console.log(contents_param);
+    (<HTMLFormElement>document.getElementById('edit_title')).value = contents_param.get('title');
+    (<HTMLFormElement>document.getElementById('edit_description')).value = contents_param.get('description')
+
+    let _target_date = new Date(contents_param.get('release_datetime')!);
+    let year = _target_date.getFullYear();
+    let month = ('0' + _target_date.getMonth()).slice(-2);
+    let date = _target_date.getDate();
+    let target_date = (year + '-' + month + '-' + date);
+    (<HTMLFormElement>document.getElementById('edit_release_datetime')).value = target_date;
+
+    let category_name = (<HTMLSelectElement>document.getElementById('edit_category_id')).querySelector(`option[value='${ contents_param.get('category_id') }']`)!;
+    category_name.setAttribute('selected', 'selected');
+
+    (<HTMLFormElement>document.getElementById('edit_img_path')).value = contents_param.get('img_path');
 }
 
