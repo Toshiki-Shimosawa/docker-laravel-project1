@@ -36,15 +36,15 @@
                             <th>更新日</th>
                             <th>操作</th>
                         </tr>
-                        @foreach ($contents as $content)
+                        @foreach ($contents as $key => $content)
                             <tr>
                                 <td>{{ $content->id }}</td>
                                 <td>-</td>
-                                <td class='js_title'>{{ $content->getDetailTitle() }}</td>
+                                <td id='js_title_{{ $key }}'>{{ $content->getDetailTitle() }}</td>
                                 <td>-</td>
-                                <td class='js_category_name'>{{ $content->getDetailCategoryName() }}</td>
-                                <td class='js_detail_description'>{{ $content->getDetailDescription() }}</td>
-                                <td class='js_release_datetime'>{{ $content->release_datetime }}</td>
+                                <td id='js_category_name_{{ $key }}'>{{ $content->getDetailCategoryName() }}</td>
+                                <td id='js_description_{{ $key }}'>{{ $content->getDetailDescription() }}</td>
+                                <td id='js_release_datetime_{{ $key }}'>{{ $content->release_datetime }}</td>
                                 <td>{{ $content->created_at }}</td>
                                 <td>{{ $content->updated_at }}</td>
                                 <td>
@@ -113,15 +113,18 @@
 
             for (let i = 0; i < edit_btns.length; i++) {
                 edit_btns[i].addEventListener('click', function() {
-                    let contents = @json($contents);
-                    let target_content = contents[i];
+                    let title = document.getElementById(`js_title_${i}`).textContent;
+                    let description = document.getElementById(`js_description_${i}`).textContent;
+                    let release_datetime = document.getElementById(`js_release_datetime_${i}`).textContent;
+                    let category_name =  document.getElementById(`js_category_name_${i}`).textContent;
+                    let img_path = document.getElementById(`js_title_${i}`).textContent;
 
                     let contents_param = new Map();
-                    contents_param.set('title', target_content.title);
-                    contents_param.set('description', target_content.description);
-                    contents_param.set('release_datetime', target_content.release_datetime);
-                    contents_param.set('category_id', target_content.category_id);
-                    contents_param.set('img_path', target_content.img_path);
+                    contents_param.set('title', title);
+                    contents_param.set('description', description);
+                    contents_param.set('release_datetime', release_datetime);
+                    contents_param.set('category_name', category_name);
+                    contents_param.set('img_path', img_path);
                     createEditFormByContentsParam(contents_param);
                 })
             }
