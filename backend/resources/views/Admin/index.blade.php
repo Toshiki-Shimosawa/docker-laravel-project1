@@ -76,7 +76,7 @@
                             {!! Form::select('category_id', [1=>'グルメ', 2=>'お店',3=>'イベント',4=>'フォト'], 1, ['id' => 'category_id', 'class' => 'category_id']) !!} <br>
                             {!! Form::label('img_path', '画像URL') !!} <br>
                             {!! Form::text('img_path', null, ['id' => 'img_path']) !!} <br>
-                            {!! Form::button('登録', ['id' => 'submit_btn', 'type' => 'button', 'class' => 'img_path']) !!}
+                            {!! Form::button('登録', ['id' => 'new_submit_btn', 'type' => 'button', 'class' => 'img_path']) !!}
                         </div>
                     </div>
                 </div>
@@ -87,8 +87,8 @@
 
                             @inject ( 'dateTimeHelper', 'App\Models\Helper\DateTimeHelper' )
 
-                            {!! Form::hidden('content_id', null, ['id' => 'edit_content_id']) !!}
                             {!! Form::open(['url' => 'admin/new', 'method' => 'post']) !!}
+                            {!! Form::hidden('content_id', null, ['id' => 'edit_content_id']) !!}
                             {!! Form::label('title', '記事タイトル') !!} <br>
                             {!! Form::text('title', null, ['id' => 'edit_title', 'class' => 'edit_title']) !!} <br>
                             {!! Form::label('description', '説明') !!} <br>
@@ -99,7 +99,7 @@
                             {!! Form::select('category_id', [1=>'グルメ', 2=>'お店',3=>'イベント',4=>'フォト'], 1, ['id' => 'edit_category_id', 'class' => 'edit_category_id']) !!} <br>
                             {!! Form::label('img_path', '画像URL') !!} <br>
                             {!! Form::text('img_path', null, ['id' => 'edit_img_path']) !!} <br>
-                            {!! Form::button('登録', ['id' => 'submit_btn', 'type' => 'button', 'class' => 'edit_img_path']) !!}
+                            {!! Form::button('登録', ['id' => 'edit_submit_btn', 'type' => 'button', 'class' => 'edit_img_path']) !!}
                         </div>
                     </div>
                 </div>

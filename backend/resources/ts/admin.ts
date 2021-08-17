@@ -1,3 +1,5 @@
+var csrf_token = (<HTMLMetaElement>document.getElementsByName('csrf_token')[0]).content;
+
 var new_button:HTMLDivElement = <HTMLDivElement>document.getElementById('new_button');
 var new_modal:HTMLDivElement = <HTMLDivElement>document.getElementById('new_modal');
 
@@ -5,13 +7,22 @@ new_button.addEventListener('click', function() {
     new_modal.style.display = 'block';
 })
 
-const target_id = 'submit_btn';
 
-const e = document.getElementById(target_id);
-var csrf_token = (<HTMLMetaElement>document.getElementsByName('csrf_token')[0]).content;
+const new_event = document.getElementById('new_submit_btn');
 
-if (e) {
-    e.addEventListener('click', () => {
+function getRequestParameterByDataList(data_list:Map<string, string | number>)
+{
+    var request_parameter: string = '';
+
+    data_list.forEach((value, key) => {
+        request_parameter = request_parameter.concat(`${key}=${value}&`);
+    });
+
+    return request_parameter;
+}
+
+if (new_event) {
+    new_event.addEventListener('click', () => {
         const httpRequest = new XMLHttpRequest();
         httpRequest.open('post', 'admin/new', true);
 
@@ -28,17 +39,6 @@ if (e) {
             ['category_id', category_id],
             ['img_path', img_path]
         ]);
-
-        function getRequestParameter()
-        {
-            var request_parameter: string = '';
-
-            data_list.forEach((value, key) => {
-                request_parameter = request_parameter.concat(`${key}=${value}&`);
-            });
-
-            return request_parameter;
-        }
 
         httpRequest.onreadystatechange = () => {
             if (httpRequest.readyState === 4) {
@@ -57,7 +57,7 @@ if (e) {
         httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         httpRequest.setRequestHeader('X-CSRF-Token', csrf_token);
 
-        var request_parameter = getRequestParameter();
+        var request_parameter = getRequestParameterByDataList(data_list);
         httpRequest.send(request_parameter);
     })
 }
@@ -81,3 +81,32 @@ export function createEditFormByContentsParam(contents_param: Map<string, string
     (<HTMLFormElement>document.getElementById('edit_img_path')).value = contents_param.get('img_path');
 }
 
+
+const edit_event = document.getElementById('edit_submit_btn');
+
+if (edit_event) {
+    edit_event.addEventListener('click', () => {
+        const httpRequest = new XMLHttpRequest();
+        httpRequest.open('post', 'admin/edit', true);
+
+        var article_title = (<HTMLFormElement>document.getElementById('edit_title')).value;
+        var article_description = (<HTMLFormElement>document.getElementById('edit_description')).value;
+        var release_date_time = (<HTMLFormElement>document.getElementById('edit_release_datetime')).value;
+        var category_id = (<HTMLFormElement>document.getElementById('edit_category_id')).value;
+        var img_path = (<HTMLFormElement>document.getElementById('edit_img_path')).value;
+
+        let data_list = new Map<string, string | number>([
+            ['article_title', article_title],
+            ['article_description', article_description],
+            ['release_date_time', release_date_time],
+            ['category_id', category_id],
+            ['img_path', img_path]
+        ]);
+
+        httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        httpRequest.setRequestHeader('X-CSRF-Token', csrf_token);
+
+        var request_parameter = getRequestParameterByDataList(data_list);
+        httpRequest.send(request_parameter);
+    });
+}
