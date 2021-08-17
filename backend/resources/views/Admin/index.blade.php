@@ -38,7 +38,7 @@
                         </tr>
                         @foreach ($contents as $key => $content)
                             <tr>
-                                <td>{{ $content->id }}</td>
+                                <td id='js_content_id_{{ $key }}'>{{ $content->id }}</td>
                                 <td>-</td>
                                 <td id='js_title_{{ $key }}'>{{ $content->getDetailTitle() }}</td>
                                 <td>-</td>
@@ -87,6 +87,7 @@
 
                             @inject ( 'dateTimeHelper', 'App\Models\Helper\DateTimeHelper' )
 
+                            {!! Form::hidden('content_id', null, ['id' => 'edit_content_id']) !!}
                             {!! Form::open(['url' => 'admin/new', 'method' => 'post']) !!}
                             {!! Form::label('title', '記事タイトル') !!} <br>
                             {!! Form::text('title', null, ['id' => 'edit_title', 'class' => 'edit_title']) !!} <br>
@@ -116,6 +117,7 @@
                 edit_btns[i].addEventListener('click', function() {
                     edit_modal.style.display = 'block';
 
+                    let content_id = document.getElementById(`js_content_id_${i}`).textContent;
                     let title = document.getElementById(`js_title_${i}`).textContent;
                     let description = document.getElementById(`js_description_${i}`).textContent;
                     let release_datetime = document.getElementById(`js_release_datetime_${i}`).textContent;
@@ -123,6 +125,7 @@
                     let img_path = document.getElementById(`js_title_${i}`).textContent;
 
                     let contents_param = new Map();
+                    contents_param.set('content_id', content_id);
                     contents_param.set('title', title);
                     contents_param.set('description', description);
                     contents_param.set('release_datetime', release_datetime);

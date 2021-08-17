@@ -64,6 +64,7 @@ if (e) {
 
 export function createEditFormByContentsParam(contents_param: Map<string, string | number>)
 {
+    (<HTMLFormElement>document.getElementById('edit_content_id')).value = contents_param.get('content_id');
     (<HTMLFormElement>document.getElementById('edit_title')).value = contents_param.get('title');
     (<HTMLFormElement>document.getElementById('edit_description')).value = contents_param.get('description')
 

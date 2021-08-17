@@ -52,6 +52,7 @@ if (e) {
     });
 }
 function createEditFormByContentsParam(contents_param) {
+    document.getElementById('edit_content_id').value = contents_param.get('content_id');
     document.getElementById('edit_title').value = contents_param.get('title');
     document.getElementById('edit_description').value = contents_param.get('description');
     var _target_date = new Date(contents_param.get('release_datetime'));
