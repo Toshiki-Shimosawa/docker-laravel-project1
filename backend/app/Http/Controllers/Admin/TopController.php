@@ -54,8 +54,40 @@ class TopController extends Controller
         ]);
     }
 
-    public function edit()
+    public function postEdit(Request $request)
     {
+        $content = Content::find($request->content_id);
 
+        if ( ! isset($content)) {
+            return ; //Todo:エラーハンドリング
+        }
+
+        if ($content->release_datetime != $request->release_date_time) {
+            $content->release_datetime = $request->release_date_time;
+            $content->save();
+        }
+
+        $content_detail = $content->detail;
+
+        if (($content_detail->title != $request->article_title) ||
+            ($content_detail->description != $request->article_description) ||
+            ($content_detail->category_id != $request->category_id) ||
+            ($content_detail->img_path != $request->img_path)) {
+            $content_detail->title = $request->article_title;
+            $content_detail->description = $request->article_description;
+            $content_detail->category_id = $request->category_id;
+            $content_detail->img_path = $request->img_path;
+            $content_detail->save();
+        }
+
+        $contents = Content::with([
+            'detail',
+            'detail.category'
+        ])
+        ->get();
+
+        return view('admin/index')->with([
+            'contents' => $contents,
+        ]);
     }
 }

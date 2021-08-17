@@ -70,12 +70,14 @@ if (edit_event) {
     edit_event.addEventListener('click', function () {
         var httpRequest = new XMLHttpRequest();
         httpRequest.open('post', 'admin/edit', true);
+        var content_id = document.getElementById('edit_content_id').value;
         var article_title = document.getElementById('edit_title').value;
         var article_description = document.getElementById('edit_description').value;
         var release_date_time = document.getElementById('edit_release_datetime').value;
         var category_id = document.getElementById('edit_category_id').value;
         var img_path = document.getElementById('edit_img_path').value;
         var data_list = new Map([
+            ['content_id', content_id],
             ['article_title', article_title],
             ['article_description', article_description],
             ['release_date_time', release_date_time],

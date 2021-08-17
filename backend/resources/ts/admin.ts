@@ -89,6 +89,7 @@ if (edit_event) {
         const httpRequest = new XMLHttpRequest();
         httpRequest.open('post', 'admin/edit', true);
 
+        var content_id = (<HTMLFormElement>document.getElementById('edit_content_id')).value;
         var article_title = (<HTMLFormElement>document.getElementById('edit_title')).value;
         var article_description = (<HTMLFormElement>document.getElementById('edit_description')).value;
         var release_date_time = (<HTMLFormElement>document.getElementById('edit_release_datetime')).value;
@@ -96,6 +97,7 @@ if (edit_event) {
         var img_path = (<HTMLFormElement>document.getElementById('edit_img_path')).value;
 
         let data_list = new Map<string, string | number>([
+            ['content_id', content_id],
             ['article_title', article_title],
             ['article_description', article_description],
             ['release_date_time', release_date_time],
