@@ -128,3 +128,8 @@ main {
     color: #ffffff;
     margin: 10px 10px;
 }
+
+.card-img {
+    height: 100px;
+    width: 100px;
+}

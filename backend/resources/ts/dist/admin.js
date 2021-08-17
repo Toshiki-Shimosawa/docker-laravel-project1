@@ -84,6 +84,19 @@ if (edit_event) {
             ['category_id', category_id],
             ['img_path', img_path]
         ]);
+        httpRequest.onreadystatechange = function () {
+            if (httpRequest.readyState === 4) {
+                if (httpRequest.status === 200) {
+                    alert('登録が完了しました');
+                    new_modal.style.display = 'none';
+                    location.reload();
+                }
+                else {
+                    alert('正常に登録ができませんでした。管理者にお問い合わせください。');
+                    new_modal.style.display = 'none';
+                }
+            }
+        };
         httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         httpRequest.setRequestHeader('X-CSRF-Token', csrf_token);
         var request_parameter = getRequestParameterByDataList(data_list);
