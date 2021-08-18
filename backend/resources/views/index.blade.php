@@ -1,14 +1,14 @@
 <html>
     <head>
         <meta charset=”UTF-8″>
-        <title>FUKUSHIMA_BASE</title>
+        <title>KYOTO_BASE</title>
         <link href="{{ asset('css/block/navbar.css') }}" type="text/css" rel="stylesheet">
         <link href="{{ asset('css/top.css') }}" type="text/css" rel="stylesheet">
     </head>
     <body>
         <header>
             <div class="fv">
-                <h2>オオサカ フクシマベース</h2>
+                <h2>キョートベース</h2>
             </div>
             <div class="nav">
                 <ul>
