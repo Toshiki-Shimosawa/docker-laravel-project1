@@ -6,12 +6,10 @@ main {
 
 .left_contents {
     flex-basis: 70%;
-    background-color: #d8d8e0;
 }
 
 .right_contents {
     flex-basis: 30%;
-    background-color: red;
 }
 
 .card {
