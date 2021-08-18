@@ -14,10 +14,14 @@
         <main>
             <div class="side_bar">
                 <ul>
-                    <li>投稿</li>
+                    <a href="{{ url('/admin')}}">
+                        <li>投稿</li>
+                    </a>
                     <li>ユーザー管理</li>
                     <li>設定</li>
-                    <li>トップへ</li>
+                    <a href="{{ url('/')}}">
+                        <li>トップへ</li>
+                    </a>
                 </ul>
             </div>
             <div class="contents">
