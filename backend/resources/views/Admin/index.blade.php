@@ -39,7 +39,7 @@
                         @foreach ($contents as $key => $content)
                             <tr>
                                 <td id='js_content_id_{{ $key }}'>{{ $content->id }}</td>
-                                <td id='js_img_path_{{ $key }}'><img class='card-img' src="{{ $content->getDetailImagePath() }}" alt=""></td>
+                                <td id='js_img_path_{{ $key }}' class='card-img'><img src="{{ $content->getDetailImagePath() }}" alt=""></td>
                                 <td id='js_title_{{ $key }}'>{{ $content->getDetailTitle() }}</td>
                                 <td>-</td>
                                 <td id='js_category_name_{{ $key }}' data-category_id="{{ $content->getDetailCategoryid() }}">{{ $content->getDetailCategoryName() }}</td>
@@ -122,7 +122,7 @@
                     let description = document.getElementById(`js_description_${i}`).textContent;
                     let release_datetime = document.getElementById(`js_release_datetime_${i}`).textContent;
                     let category_id =  document.getElementById(`js_category_name_${i}`).dataset.category_id;
-                    let img_path = document.getElementById(`js_title_${i}`).textContent;
+                    let img_path = document.getElementById(`js_img_path_${i}`).firstElementChild.getAttribute('src');
 
                     let contents_param = new Map();
                     contents_param.set('content_id', content_id);
