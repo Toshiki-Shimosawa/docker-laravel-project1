@@ -3,13 +3,12 @@
         <meta charset=”UTF-8″>
         <meta name="csrf_token" content="{{ csrf_token() }}">
         <title>管理画面 - FUKUSHIMA_BASE</title>
-        <link href="{{ asset('css/block/navbar.css') }}" type="text/css" rel="stylesheet">
         <link href="{{ asset('css/admin/top.css') }}" type="text/css" rel="stylesheet">
     </head>
     <body>
         <header>
             <div class="fv">
-                <h2>管理画面 - オオサカ フクシマベース</h2>
+                <p>管理画面</h2>
             </div>
         </header>
         <main>
@@ -22,6 +21,9 @@
                 </ul>
             </div>
             <div class="contents">
+                <div id="new_button" class="new_button">
+                    <a>新規投稿</a>
+                </div>
                 <div>
                     <table class="contents_table">
                         <tr>
@@ -47,16 +49,13 @@
                                 <td id='js_release_datetime_{{ $key }}'>{{ $content->release_datetime }}</td>
                                 <td>{{ $content->created_at }}</td>
                                 <td>{{ $content->updated_at }}</td>
-                                <td>
+                                <td class="edit_btn">
                                     <button class="edit_btn" value="{{ $content->id }}">編集</button>
                                 </td>
                             </tr>
                         @endforeach
 
                     </table>
-                </div>
-                <div id="new_button" class="new_button">
-                    <a>新規投稿</a>
                 </div>
                 <div id="new_modal" class="new_modal_background">
                     <div class="new_modal-content">
