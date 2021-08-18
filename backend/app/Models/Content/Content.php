@@ -4,6 +4,7 @@ namespace App\Models\Content;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\User\User;
 
 class Content extends Model
 {
@@ -50,5 +51,11 @@ class Content extends Model
     {
         return $this->detail
         ->getCategoryId();
+    }
+
+    public function getUserName()
+    {
+        return $this->user
+        ->name;
     }
 }

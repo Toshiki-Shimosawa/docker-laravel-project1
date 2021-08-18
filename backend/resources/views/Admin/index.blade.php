@@ -47,7 +47,7 @@
                                 <td id='js_content_id_{{ $key }}'>{{ $content->id }}</td>
                                 <td id='js_img_path_{{ $key }}' class='card-img'><img src="{{ $content->getDetailImagePath() }}" alt=""></td>
                                 <td id='js_title_{{ $key }}'>{{ $content->getDetailTitle() }}</td>
-                                <td>-</td>
+                                <td>{{ $content->getUserName() }}</td>
                                 <td id='js_category_name_{{ $key }}' data-category_id="{{ $content->getDetailCategoryid() }}">{{ $content->getDetailCategoryName() }}</td>
                                 <td id='js_description_{{ $key }}'>{{ $content->getDetailDescription() }}</td>
                                 <td id='js_release_datetime_{{ $key }}'>{{ $content->release_datetime }}</td>
