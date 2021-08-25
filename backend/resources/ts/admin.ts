@@ -4,7 +4,7 @@ var new_button:HTMLDivElement = <HTMLDivElement>document.getElementById('new_but
 var new_modal:HTMLDivElement = <HTMLDivElement>document.getElementById('new_modal');
 
 new_button.addEventListener('click', function() {
-    new_modal.style.display = 'block';
+    new_modal.classList.toggle('radius');
 })
 
 
@@ -44,12 +44,12 @@ if (new_event) {
             if (httpRequest.readyState === 4) {
                 if (httpRequest.status === 200) {
                     alert('登録が完了しました');
-                    new_modal.style.display = 'none';
+                    new_modal.style.visibility = 'hidden';
                     location.reload();
                 }
                 else {
                     alert('正常に登録ができませんでした。管理者にお問い合わせください。');
-                    new_modal.style.display = 'none';
+                    new_modal.style.visibility = 'hidden';
                 }
             }
         }
@@ -109,12 +109,12 @@ if (edit_event) {
             if (httpRequest.readyState === 4) {
                 if (httpRequest.status === 200) {
                     alert('登録が完了しました');
-                    new_modal.style.display = 'none';
+                    new_modal.style.visibility = 'hidden';
                     location.reload();
                 }
                 else {
                     alert('正常に登録ができませんでした。管理者にお問い合わせください。');
-                    new_modal.style.display = 'none';
+                    new_modal.style.visibility = 'hidden';
                 }
             }
         }
