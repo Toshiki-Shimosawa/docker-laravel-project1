@@ -23,6 +23,24 @@
                     <li><a href="">投稿募集</a></li>
                 </ul>
             </div>
+            <div id="humburger">
+                <span class="inner_line line1" id="line1"></span>
+                <span class="inner_line line2" id="line2"></span>
+                <span class="inner_line line3" id="line3"></span>
+            </div>
+            <div id="humburger_menu">
+                <ul>
+                    <li><a href="">ホーム</a></li>
+                    <li><a href="">グルメ</a></li>
+                    <li><a href="">お店</a></li>
+                    <li><a href="">イベント</a></li>
+                    <li><a href="">フォト</a></li>
+                    <li><a href="">求人</a></li>
+                    <li><a href="">不動産</a></li>
+                    <li><a href="">話題</a></li>
+                    <li><a href="">投稿募集</a></li>
+                </ul>
+            </div>
         </header>
         <main>
             <div class="left_contents">
@@ -42,5 +60,6 @@
         </main>
         <footer>
         </footer>
+        <script src="{{ asset('/js/top.js') }}"></script>
     </body>
 </html>

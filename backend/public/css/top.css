@@ -4,6 +4,72 @@ main {
     height: 300px;
 }
 
+#humburger {
+  z-index: 50;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 50px;
+  height: 45px;
+  background-color:transparent;
+  cursor: pointer;
+  transition: 0.5s;
+  /* visibility: hidden; */
+}
+
+#humburger .inner_line {
+  display: block;
+  position: absolute;
+  left: 10px;
+  width: 30px;
+  height: 3px;
+  background-color: #000000;
+  transition: 0.5s;
+  border-radius: 4px;
+}
+
+#line1{
+  top: 10px;
+}
+
+#line2{
+  top: 20px;
+}
+
+#line3{
+  top: 30px;
+}
+
+.line1_clicked {
+  transform: rotate(-45deg);
+  top: 20px !important;
+}
+
+.line2_clicked {
+  visibility: hidden;
+}
+
+.line3_clicked {
+  transform: rotate(45deg);
+  top: 20px !important;
+}
+
+#humburger_menu {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 200px;
+  background-color: rgb(236, 236, 241);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.radius {
+  visibility: visible !important;
+  opacity: 1 !important;
+  transition: opacity 0.4s;
+}
+
 .left_contents {
     flex-basis: 70%;
 }
