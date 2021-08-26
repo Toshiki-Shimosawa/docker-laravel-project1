@@ -43,6 +43,7 @@ main {
 .line1_clicked {
   transform: rotate(-45deg);
   top: 20px !important;
+  background-color: #ffffff !important;
 }
 
 .line2_clicked {
@@ -52,6 +53,7 @@ main {
 .line3_clicked {
   transform: rotate(45deg);
   top: 20px !important;
+  background-color: #ffffff !important;
 }
 
 #humburger_menu {
@@ -59,10 +61,36 @@ main {
   top: 0px;
   right: 0px;
   width: 200px;
-  background-color: rgb(236, 236, 241);
+  background-color: rgb(35, 40, 45);
   opacity: 0;
   visibility: hidden;
 }
+
+#humburger_menu ul {
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+#humburger_menu ul li {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  list-style-type: none;
+  text-align: center;
+}
+
+#humburger_menu ul li:hover {
+  background-color: rgb(60, 128, 175);
+}
+
+
+#humburger_menu ul li a {
+  display: block;
+  width: auto;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+
 
 .radius {
   visibility: visible !important;
