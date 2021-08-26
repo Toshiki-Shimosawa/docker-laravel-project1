@@ -4,56 +4,66 @@ main {
     height: 300px;
 }
 
-#humburger {
-  z-index: 50;
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  width: 50px;
-  height: 45px;
-  background-color:transparent;
-  cursor: pointer;
-  transition: 0.5s;
-  /* visibility: hidden; */
+@media screen and (max-width: 1024px) {
+
 }
 
-#humburger .inner_line {
-  display: block;
-  position: absolute;
-  left: 10px;
-  width: 30px;
-  height: 3px;
-  background-color: #000000;
-  transition: 0.5s;
-  border-radius: 4px;
-}
+@media screen and (max-width: 896px) {
+  #humburger {
+    z-index: 50;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 50px;
+    height: 45px;
+    background-color:transparent;
+    cursor: pointer;
+    transition: 0.5s;
+    /* visibility: hidden; */
+  }
 
-#line1{
-  top: 10px;
-}
+  #humburger .inner_line {
+    display: block;
+    position: absolute;
+    left: 10px;
+    width: 30px;
+    height: 3px;
+    background-color: #000000;
+    transition: 0.5s;
+    border-radius: 4px;
+  }
 
-#line2{
-  top: 20px;
-}
+  #line1{
+    top: 10px;
+  }
 
-#line3{
-  top: 30px;
-}
+  #line2{
+    top: 20px;
+  }
 
-.line1_clicked {
-  transform: rotate(-45deg);
-  top: 20px !important;
-  background-color: #ffffff !important;
-}
+  #line3{
+    top: 30px;
+  }
 
-.line2_clicked {
-  visibility: hidden;
-}
+  .line1_clicked {
+    transform: rotate(-45deg);
+    top: 20px !important;
+    background-color: #ffffff !important;
+  }
 
-.line3_clicked {
-  transform: rotate(45deg);
-  top: 20px !important;
-  background-color: #ffffff !important;
+  .line2_clicked {
+    visibility: hidden;
+  }
+
+  .line3_clicked {
+    transform: rotate(45deg);
+    top: 20px !important;
+    background-color: #ffffff !important;
+  }
+
+  .nav {
+    visibility: hidden;
+  }
 }
 
 #humburger_menu {
@@ -89,8 +99,6 @@ main {
   text-decoration: none;
   color: #ffffff;
 }
-
-
 
 .radius {
   visibility: visible !important;
