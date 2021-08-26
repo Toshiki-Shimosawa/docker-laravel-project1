@@ -1,6 +1,7 @@
 <html>
     <head>
         <meta charset=”UTF-8″>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <title>KYOTO_BASE</title>
         <link href="{{ asset('css/block/navbar.css') }}" type="text/css" rel="stylesheet">
         <link href="{{ asset('css/top.css') }}" type="text/css" rel="stylesheet">
@@ -43,7 +44,7 @@
             </div>
         </header>
         <main>
-            <div class="left_contents">
+            <div class="left_contents_pc">
                 @foreach ($contents as $content)
                     <section class="card">
                         <img class="card-img" src="{{ $content->getDetailImagePath() }}" alt="">
@@ -54,9 +55,27 @@
                     </section>
                 @endforeach
             </div>
-            <div class="right_contents">
+            <div class="right_contents_pc">
+                <div class="advertisement">
+                    <h2>広告1</h2>
+                    <p>内容内容内容内容内容内容内容内容内容内容</p>
+                </div>
+                <div class="advertisement">
+                    <h2>広告2</h2>
+                    <p>内容内容内容内容内容内容内容内容内容内容</p>
+                </div>
             </div>
-
+            <div class="left_contents_sp">
+                @foreach ($contents as $content)
+                    <section class="card">
+                        <img class="card-img" src="{{ $content->getDetailImagePath() }}" alt="">
+                        <div class="card-content">
+                        <h1 class="card-title">{{ $content->getDetailTitle() }}</h1>
+                        <p class="card-text">{{ $content->getDetailDescription() }}</p>
+                        </div>
+                    </section>
+                @endforeach
+            </div>
         </main>
         <footer>
         </footer>
