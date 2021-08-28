@@ -1,2 +1,2 @@
 require('./bootstrap');
-window.createEditFormByContentsParam = require("../ts/admin").createEditFormByContentsParam;
+window.createEditFormByContentsParam = require("../ts/contents").createEditFormByContentsParam;

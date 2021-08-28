@@ -13,4 +13,4 @@ var mix = require('laravel-mix');
  */
 
 
-mix.js('resources/js/app.js', 'public/js').sass('resources/sass/app.scss', 'public/css').ts('resources/ts/app.ts', 'public/js/app.js').ts('resources/ts/admin.ts', 'public/js/admin.js').ts('resources/ts/top.ts', 'public/js/top.js').sourceMaps();
+mix.js('resources/js/app.js', 'public/js').sass('resources/sass/app.scss', 'public/css').ts('resources/ts/app.ts', 'public/js/app.js').ts('resources/ts/contents.ts', 'public/js/contents.js').ts('resources/ts/top.ts', 'public/js/top.js').sourceMaps();

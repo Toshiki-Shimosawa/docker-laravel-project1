@@ -74,7 +74,7 @@ class TopController extends Controller
         ])
         ->get();
 
-        return view('admin/index')->with([
+        return view('Admin/contents')->with([
             'contents' => $contents,
         ]);
     }
@@ -111,7 +111,7 @@ class TopController extends Controller
         ])
         ->get();
 
-        return view('admin/index')->with([
+        return view('Admin/contents')->with([
             'contents' => $contents,
         ]);
     }

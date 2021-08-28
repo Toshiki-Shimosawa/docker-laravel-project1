@@ -132,7 +132,7 @@ var edit_modal = document.getElementById('edit_modal')!;
 for (let i = 0; i < edit_btns.length; i++) {
     edit_btns[i].addEventListener('click', function() {
         edit_modal.style.display = 'block';
-console.log(i);
+
         let content_id = (document.getElementById(`js_content_id_${i}`)!).textContent;
         let title = (document.getElementById(`js_title_${i}`)!).textContent;
         let description = (document.getElementById(`js_description_${i}`)!).textContent;
