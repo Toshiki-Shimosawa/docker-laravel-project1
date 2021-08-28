@@ -29,6 +29,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::group(['prefix' => 'user'], function () {
         Route::get('/', [AdminTopController::class, 'user']);
         Route::post('/new', [AdminTopController::class, 'userPostNew']);
+        Route::post('/delete', [AdminTopController::class, 'userPostDelete']);
         Route::post('/edit', [AdminTopController::class, 'userPostEdit']);
     });
 });

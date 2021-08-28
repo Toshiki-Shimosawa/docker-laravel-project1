@@ -24,6 +24,21 @@ class TopController extends Controller
         ]);
     }
 
+    public function userPostNew(Request $request)
+    {
+        //
+    }
+
+    public function userPostEdit(Request $request)
+    {
+        //
+    }
+
+    public function userPostDelete(Request $request)
+    {
+        //
+    }
+
     public function contents()
     {
         $contents = Content::with([
