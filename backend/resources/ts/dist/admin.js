@@ -18,7 +18,7 @@ function getRequestParameterByDataList(data_list) {
 if (new_event) {
     new_event.addEventListener('click', function () {
         var httpRequest = new XMLHttpRequest();
-        httpRequest.open('post', 'admin/contents/new', true);
+        httpRequest.open('post', '/admin/contents/new', true);
         var article_title = document.getElementById('article_title').value;
         var article_description = document.getElementById('article_description').value;
         var release_date_time = document.getElementById('release_date_time').value;
@@ -69,7 +69,7 @@ var edit_event = document.getElementById('edit_submit_btn');
 if (edit_event) {
     edit_event.addEventListener('click', function () {
         var httpRequest = new XMLHttpRequest();
-        httpRequest.open('post', 'admin/contents/edit', true);
+        httpRequest.open('post', '/admin/contents/edit', true);
         var content_id = document.getElementById('edit_content_id').value;
         var article_title = document.getElementById('edit_title').value;
         var article_description = document.getElementById('edit_description').value;
@@ -102,4 +102,29 @@ if (edit_event) {
         var request_parameter = getRequestParameterByDataList(data_list);
         httpRequest.send(request_parameter);
     });
+}
+var edit_btns = document.getElementsByClassName('edit_btn');
+var edit_modal = document.getElementById('edit_modal');
+var _loop_1 = function (i) {
+    edit_btns[i].addEventListener('click', function () {
+        edit_modal.style.display = 'block';
+        console.log(i);
+        var content_id = (document.getElementById("js_content_id_" + i)).textContent;
+        var title = (document.getElementById("js_title_" + i)).textContent;
+        var description = (document.getElementById("js_description_" + i)).textContent;
+        var release_datetime = (document.getElementById("js_release_datetime_" + i)).textContent;
+        var category_id = (document.getElementById("js_category_name_" + i)).dataset.category_id;
+        var img_path = ((document.getElementById("js_img_path_" + i)).firstElementChild).getAttribute('src');
+        var contents_param = new Map();
+        contents_param.set('content_id', content_id);
+        contents_param.set('title', title);
+        contents_param.set('description', description);
+        contents_param.set('release_datetime', release_datetime);
+        contents_param.set('category_id', category_id);
+        contents_param.set('img_path', img_path);
+        createEditFormByContentsParam(contents_param);
+    });
+};
+for (var i = 0; i < edit_btns.length; i++) {
+    _loop_1(i);
 }

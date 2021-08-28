@@ -31,7 +31,7 @@
     <div id="new_modal" class="new_modal_background">
         <div class="new_modal-content">
             <div class="new_modal-body">
-                <h1 class="new_form_title">新規投稿</h1>
+                <h1 class="new_form_title">新規登録</h1>
 
                 @inject ( 'dateTimeHelper', 'App\Models\Helper\DateTimeHelper' )
 

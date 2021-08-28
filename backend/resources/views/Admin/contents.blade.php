@@ -31,7 +31,7 @@
                     <td>{{ $content->created_at }}</td>
                     <td>{{ $content->updated_at }}</td>
                     <td class="edit_btn">
-                        <button class="edit_btn" value="{{ $content->id }}">編集</button>
+                        <button class="edit_btns_{{ $key }}" value="{{ $content->id }}">編集</button>
                     </td>
                 </tr>
             @endforeach
@@ -84,3 +84,8 @@
     </div>
 
 @endsection
+
+@section('js')
+    <script src="{{ asset('/js/admin.js') }}"></script>
+@endsection
+
