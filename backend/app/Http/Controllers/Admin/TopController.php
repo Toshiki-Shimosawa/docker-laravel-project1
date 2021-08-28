@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Content\Content;
 use App\Models\Content\ContentDetail;
 use App\Http\Controllers\Controller;
+use App\Models\User\User;
 use Carbon\Carbon;
 
 use App\Models\Helper\DateTimeHelper;
@@ -14,7 +15,16 @@ use Illuminate\Http\Request;
 
 class TopController extends Controller
 {
-    public function index()
+    public function user()
+    {
+        $users = User::all();
+
+        return view('admin/user')->with([
+            'users' => $users
+        ]);
+    }
+
+    public function contents()
     {
         $contents = Content::with([
             'detail',
@@ -22,12 +32,12 @@ class TopController extends Controller
         ])
         ->get();
 
-        return view('admin/index')->with([
+        return view('admin/contents')->with([
             'contents' => $contents,
         ]);
     }
 
-    public function postNew(Request $request)
+    public function contetnsPostNew(Request $request)
     {
         $content = new Content();
         $content->release_datetime = $request->release_date_time;
@@ -54,7 +64,7 @@ class TopController extends Controller
         ]);
     }
 
-    public function postEdit(Request $request)
+    public function contetnsPostEdit(Request $request)
     {
         $content = Content::find($request->content_id);
 

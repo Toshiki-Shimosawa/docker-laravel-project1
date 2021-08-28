@@ -20,7 +20,15 @@ use App\Http\Controllers\Admin\TopController as AdminTopController;
 Route::get('/', [TopController::class, 'index']);
 
 Route::group(['prefix' => 'admin'], function () {
-    Route::get('/', [AdminTopController::class, 'index']);
-    Route::post('/new', [AdminTopController::class, 'postNew']);
-    Route::post('/edit', [AdminTopController::class, 'postEdit']);
+    Route::group(['prefix' => 'contents'], function () {
+        Route::get('/', [AdminTopController::class, 'contents']);
+        Route::post('/new', [AdminTopController::class, 'contetnsPostNew']);
+        Route::post('/edit', [AdminTopController::class, 'contetnsPostEdit']);
+    });
+
+    Route::group(['prefix' => 'user'], function () {
+        Route::get('/', [AdminTopController::class, 'user']);
+        Route::post('/new', [AdminTopController::class, 'userPostNew']);
+        Route::post('/edit', [AdminTopController::class, 'userPostEdit']);
+    });
 });

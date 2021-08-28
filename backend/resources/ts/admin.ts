@@ -24,7 +24,7 @@ function getRequestParameterByDataList(data_list:Map<string, string | number>)
 if (new_event) {
     new_event.addEventListener('click', () => {
         const httpRequest = new XMLHttpRequest();
-        httpRequest.open('post', 'admin/new', true);
+        httpRequest.open('post', 'admin/contents/new', true);
 
         var article_title = (<HTMLFormElement>document.getElementById('article_title')).value;
         var article_description = (<HTMLFormElement>document.getElementById('article_description')).value;
@@ -87,7 +87,7 @@ const edit_event = document.getElementById('edit_submit_btn');
 if (edit_event) {
     edit_event.addEventListener('click', () => {
         const httpRequest = new XMLHttpRequest();
-        httpRequest.open('post', 'admin/edit', true);
+        httpRequest.open('post', 'admin/contents/edit', true);
 
         var content_id = (<HTMLFormElement>document.getElementById('edit_content_id')).value;
         var article_title = (<HTMLFormElement>document.getElementById('edit_title')).value;

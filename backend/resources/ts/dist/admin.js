@@ -18,7 +18,7 @@ function getRequestParameterByDataList(data_list) {
 if (new_event) {
     new_event.addEventListener('click', function () {
         var httpRequest = new XMLHttpRequest();
-        httpRequest.open('post', 'admin/new', true);
+        httpRequest.open('post', 'admin/contents/new', true);
         var article_title = document.getElementById('article_title').value;
         var article_description = document.getElementById('article_description').value;
         var release_date_time = document.getElementById('release_date_time').value;
@@ -69,7 +69,7 @@ var edit_event = document.getElementById('edit_submit_btn');
 if (edit_event) {
     edit_event.addEventListener('click', function () {
         var httpRequest = new XMLHttpRequest();
-        httpRequest.open('post', 'admin/edit', true);
+        httpRequest.open('post', 'admin/contents/edit', true);
         var content_id = document.getElementById('edit_content_id').value;
         var article_title = document.getElementById('edit_title').value;
         var article_description = document.getElementById('edit_description').value;
