@@ -1,0 +1,163 @@
+.side_bar a {
+    text-decoration: none;
+    color: #ffffffab;
+}
+
+body {
+    background-color: rgb(35, 40, 45);
+}
+
+main {
+    display: flex;
+    height: 700px;
+}
+
+.fv p {
+    color: #ffffffab;
+}
+
+.side_bar {
+    background-color: rgb(35, 40, 45);
+    flex-basis: 10%;
+}
+
+.side_bar ul {
+    text-align: left;
+    padding-left: 0px;
+}
+
+.side_bar ul li {
+    width: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    list-style-type: none;
+    background-color: rgb(35, 40, 45);
+    color: #ffffffab;
+    font-family: sans-serif;
+}
+
+.side_bar ul li:hover {
+    background-color: rgb(60, 128, 175);
+}
+
+.contents {
+    position:relative;
+    background-color: #ffffff;
+    flex-basis: 90%;
+}
+
+.new_button {
+    position: relative;
+    margin: 20px 20px 0 auto;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: #ffffff;
+    background-color:rgb(60, 128, 175);
+    border-color: #ffffff;
+    border-radius: 5px;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+}
+
+.new_button:active {
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+    border-bottom: none;
+}
+
+.new_modal_background {
+    visibility: hidden;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+    transition-property: visibility;
+    opacity: 0;
+}
+
+.radius {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.4s;
+}
+
+.new_modal-content {
+    background-color: white;
+    width: 50%;
+    height: auto;
+    margin: 10% auto;
+    padding: 5%;
+}
+
+.new_modal-content *{
+    margin-bottom: 15px;
+}
+
+.edit_modal_background {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.edit_modal-content {
+    background-color: white;
+    width: 50%;
+    height: auto;
+    margin: 10% auto;
+    padding: 5%;
+}
+
+.edit_modal-content *{
+    margin-bottom: 15px;
+}
+
+.contents_table {
+    width: 90%;
+    margin-top: 30px;
+    margin-left:30px;
+    border-collapse: collapse;
+}
+
+.contents_table th {
+    background-color: rgb(60, 128, 175);
+    color: #ffffff;
+}
+
+.contents_table th, td {
+    border: solid 1px #000000;
+}
+.edit_btn {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.edit_btn button {
+    border: solid 1px #000000;
+    background-color: rgb(60, 128, 175);
+    font-size:12px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.card-img {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.card-img img {
+    height: 50px;
+    width: 50px;
+}

@@ -3,7 +3,8 @@
         <meta charset=”UTF-8″>
         <meta name="csrf_token" content="{{ csrf_token() }}">
         <title>管理画面 - KYOTO_BASE</title>
-        <link href="{{ asset('css/admin/top.css') }}" type="text/css" rel="stylesheet">
+
+        @yield('css')
     </head>
     <body>
         <header>

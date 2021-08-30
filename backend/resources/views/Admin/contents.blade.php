@@ -1,5 +1,9 @@
 @extends('Admin.layouts.index')
 
+@section('css')
+    <link href="{{ asset('css/admin/contents.css') }}" type="text/css" rel="stylesheet">
+@endsection
+
 @section('contents')
     <div id="new_button" class="new_button">
         <a>新規投稿</a>

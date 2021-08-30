@@ -1,5 +1,9 @@
 @extends('Admin.layouts.index')
 
+@section('css')
+    <link href="{{ asset('css/admin/user.css') }}" type="text/css" rel="stylesheet">
+@endsection
+
 @section('contents')
     <div id="new_button" class="new_button">
         <a>新規登録</a>
@@ -74,4 +78,7 @@
         </div>
     </div>
 
+@endsection
+@section('js')
+    <script src="{{ asset('/js/user.js')}}"></script>
 @endsection
