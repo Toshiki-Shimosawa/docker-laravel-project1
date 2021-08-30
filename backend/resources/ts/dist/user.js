@@ -21,9 +21,11 @@ if (new_event) {
         httpRequest.open('post', '/admin/user/new', true);
         var user_name = document.getElementById('name').value;
         var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
         var data_list = new Map([
             ['user_name', user_name],
-            ['email', email]
+            ['email', email],
+            ['password', password]
         ]);
         httpRequest.onreadystatechange = function () {
             if (httpRequest.readyState === 4) {

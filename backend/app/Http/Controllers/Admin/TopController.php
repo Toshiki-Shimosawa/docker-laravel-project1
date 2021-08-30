@@ -11,6 +11,7 @@ use Carbon\Carbon;
 use App\Models\Helper\DateTimeHelper;
 
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\View\ViewServiceProvider;
 use Illuminate\Http\Request;
 
@@ -32,19 +33,38 @@ class TopController extends Controller
 
         $last_member_code = $last_member->memmber_code;
 
-        $user = new User();
-        $user->member_code = ++$last_member_code;
-        $user->name = $request->user_name;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
+        $validation_rules = [
+            'user_name' => ['bail', 'required', 'string'],
+            'email' => ['bail', 'required', 'string'],
+            'password' => ['required', 'string', 'min:8'],
+        ];
 
-        $user->save();
+        $validator = Validator::make($request->all(), $validation_rules);
 
-        $users = User::all();
+        if ($validator->fails()) {
+            $users = User::all();
 
-        return view('admin/user')->with([
-            'users' => $users
-        ]);
+            return view('admin/user')->with([
+                'users' => $users
+            ]);
+        }
+        else {
+            $user = new User();
+            $user->member_code = ++$last_member_code;
+            $user->name = $request->user_name;
+            $user->email = $request->email;
+            $user->password = Hash::make($request->password);
+
+            $user->save();
+
+            $users = User::all();
+
+            return view('admin/user')->with([
+                'users' => $users
+            ]);
+        }
+
+
     }
 
     public function userPostEdit(Request $request)

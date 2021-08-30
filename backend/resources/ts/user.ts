@@ -27,10 +27,12 @@ if (new_event) {
 
         var user_name = (<HTMLFormElement>document.getElementById('name')).value;
         var email = (<HTMLFormElement>document.getElementById('email')).value;
+        var password = (<HTMLFormElement>document.getElementById('password')).value;
 
         let data_list = new Map<string, string | number>([
             ['user_name', user_name],
-            ['email', email]
+            ['email', email],
+            ['password', password]
         ]);
 
         httpRequest.onreadystatechange = () => {

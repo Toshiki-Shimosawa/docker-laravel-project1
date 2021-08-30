@@ -37,6 +37,17 @@
             <div class="new_modal-body">
                 <h1 class="new_form_title">新規登録</h1>
 
+                <!-- Laravelバリデーションのエラー表示 -->
+                @if(count($errors) > 0)
+                <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+                </div>
+                @endif
+
                 @inject ( 'dateTimeHelper', 'App\Models\Helper\DateTimeHelper' )
 
                 {!! Form::open(['url' => 'admin/user/new', 'method' => 'post']) !!}
