@@ -44,6 +44,8 @@
                 {!! Form::text('name', null, ['id' => 'name', 'class' => 'name']) !!} <br>
                 {!! Form::label('email', 'メールアドレス') !!} <br>
                 {!! Form::text('email', null, ['id' => 'email', 'class' => 'email']) !!} <br>
+                {!! Form::label('password', 'パスワード') !!} <br>
+                {!! Form::text('password', null, ['id' => 'password', 'class' => 'password']) !!} <br>
                 {!! Form::button('登録', ['id' => 'new_submit_btn', 'type' => 'button']) !!}
             </div>
         </div>

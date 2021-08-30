@@ -9,8 +9,9 @@ use App\Models\User\User;
 use Carbon\Carbon;
 
 use App\Models\Helper\DateTimeHelper;
-use Illuminate\View\ViewServiceProvider;
 
+use Illuminate\Support\Facades\Hash;
+use Illuminate\View\ViewServiceProvider;
 use Illuminate\Http\Request;
 
 class TopController extends Controller
@@ -26,7 +27,24 @@ class TopController extends Controller
 
     public function userPostNew(Request $request)
     {
-        //
+        $last_member = User::orderBy('member_code', 'desc')
+        ->first();
+
+        $last_member_code = $last_member->memmber_code;
+
+        $user = new User();
+        $user->member_code = ++$last_member_code;
+        $user->name = $request->user_name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+
+        $user->save();
+
+        $users = User::all();
+
+        return view('admin/user')->with([
+            'users' => $users
+        ]);
     }
 
     public function userPostEdit(Request $request)

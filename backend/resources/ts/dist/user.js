@@ -18,18 +18,12 @@ function getRequestParameterByDataList(data_list) {
 if (new_event) {
     new_event.addEventListener('click', function () {
         var httpRequest = new XMLHttpRequest();
-        httpRequest.open('post', '/admin/contents/new', true);
-        var article_title = document.getElementById('article_title').value;
-        var article_description = document.getElementById('article_description').value;
-        var release_date_time = document.getElementById('release_date_time').value;
-        var category_id = document.getElementById('category_id').value;
-        var img_path = document.getElementById('img_path').value;
+        httpRequest.open('post', '/admin/user/new', true);
+        var user_name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
         var data_list = new Map([
-            ['article_title', article_title],
-            ['article_description', article_description],
-            ['release_date_time', release_date_time],
-            ['category_id', category_id],
-            ['img_path', img_path]
+            ['user_name', user_name],
+            ['email', email]
         ]);
         httpRequest.onreadystatechange = function () {
             if (httpRequest.readyState === 4) {

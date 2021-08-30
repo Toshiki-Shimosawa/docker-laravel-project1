@@ -23,20 +23,14 @@ function getRequestParameterByDataList(data_list:Map<string, string | number>)
 if (new_event) {
     new_event.addEventListener('click', () => {
         const httpRequest = new XMLHttpRequest();
-        httpRequest.open('post', '/admin/contents/new', true);
+        httpRequest.open('post', '/admin/user/new', true);
 
-        var article_title = (<HTMLFormElement>document.getElementById('article_title')).value;
-        var article_description = (<HTMLFormElement>document.getElementById('article_description')).value;
-        var release_date_time = (<HTMLFormElement>document.getElementById('release_date_time')).value;
-        var category_id = (<HTMLFormElement>document.getElementById('category_id')).value;
-        var img_path = (<HTMLFormElement>document.getElementById('img_path')).value;
+        var user_name = (<HTMLFormElement>document.getElementById('name')).value;
+        var email = (<HTMLFormElement>document.getElementById('email')).value;
 
         let data_list = new Map<string, string | number>([
-            ['article_title', article_title],
-            ['article_description', article_description],
-            ['release_date_time', release_date_time],
-            ['category_id', category_id],
-            ['img_path', img_path]
+            ['user_name', user_name],
+            ['email', email]
         ]);
 
         httpRequest.onreadystatechange = () => {
