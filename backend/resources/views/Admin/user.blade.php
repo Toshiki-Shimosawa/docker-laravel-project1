@@ -39,18 +39,12 @@
 
                 @inject ( 'dateTimeHelper', 'App\Models\Helper\DateTimeHelper' )
 
-                {!! Form::open(['url' => 'admin/new', 'method' => 'post']) !!}
-                {!! Form::label('title', '記事タイトル') !!} <br>
-                {!! Form::text('title', null, ['id' => 'article_title', 'class' => 'title']) !!} <br>
-                {!! Form::label('description', '説明') !!} <br>
-                {!! Form::textarea('description', null, ['id' => 'article_description', 'placeholder' => '入力してください', 'rows' => '5', 'class' => 'description']) !!} <br>
-                {!! Form::label('release_datetime', '公開日時') !!} <br>
-                {!! Form::date('release_datetime', $dateTimeHelper::dateParameter(\Carbon\Carbon::now()), ['id' => 'release_date_time', 'class' => 'release_datetime']) !!} <br>
-                {!! Form::label('category_id', 'カテゴリ') !!} <br>
-                {!! Form::select('category_id', [1=>'グルメ', 2=>'お店',3=>'イベント',4=>'フォト'], 1, ['id' => 'category_id', 'class' => 'category_id']) !!} <br>
-                {!! Form::label('img_path', '画像URL') !!} <br>
-                {!! Form::text('img_path', null, ['id' => 'img_path']) !!} <br>
-                {!! Form::button('登録', ['id' => 'new_submit_btn', 'type' => 'button', 'class' => 'img_path']) !!}
+                {!! Form::open(['url' => 'admin/user/new', 'method' => 'post']) !!}
+                {!! Form::label('name', 'ユーザー名') !!} <br>
+                {!! Form::text('name', null, ['id' => 'name', 'class' => 'name']) !!} <br>
+                {!! Form::label('email', 'メールアドレス') !!} <br>
+                {!! Form::text('email', null, ['id' => 'email', 'class' => 'email']) !!} <br>
+                {!! Form::button('登録', ['id' => 'new_submit_btn', 'type' => 'button']) !!}
             </div>
         </div>
     </div>
@@ -61,19 +55,12 @@
 
                 @inject ( 'dateTimeHelper', 'App\Models\Helper\DateTimeHelper' )
 
-                {!! Form::open(['url' => 'admin/new', 'method' => 'post']) !!}
-                {!! Form::hidden('content_id', null, ['id' => 'edit_content_id']) !!}
-                {!! Form::label('title', '記事タイトル') !!} <br>
-                {!! Form::text('title', null, ['id' => 'edit_title', 'class' => 'edit_title']) !!} <br>
-                {!! Form::label('description', '説明') !!} <br>
-                {!! Form::textarea('description', null, ['id' => 'edit_description', 'placeholder' => '入力してください', 'rows' => '5', 'class' => 'edit_description']) !!} <br>
-                {!! Form::label('release_datetime', '公開日時') !!} <br>
-                {!! Form::date('release_datetime', null, ['id' => 'edit_release_datetime', 'class' => 'edit_release_datetime']) !!} <br>
-                {!! Form::label('category_id', 'カテゴリ') !!} <br>
-                {!! Form::select('category_id', [1=>'グルメ', 2=>'お店',3=>'イベント',4=>'フォト'], 1, ['id' => 'edit_category_id', 'class' => 'edit_category_id']) !!} <br>
-                {!! Form::label('img_path', '画像URL') !!} <br>
-                {!! Form::text('img_path', null, ['id' => 'edit_img_path']) !!} <br>
-                {!! Form::button('登録', ['id' => 'edit_submit_btn', 'type' => 'button', 'class' => 'edit_img_path']) !!}
+                {!! Form::open(['url' => 'admin/user/new', 'method' => 'post']) !!}
+                {!! Form::label('name', 'ユーザー名') !!} <br>
+                {!! Form::text('name', null, ['id' => 'name', 'class' => 'name']) !!} <br>
+                {!! Form::label('email', 'メールアドレス') !!} <br>
+                {!! Form::text('email', null, ['id' => 'email', 'class' => 'email']) !!} <br>
+                {!! Form::button('登録', ['id' => 'new_submit_btn', 'type' => 'button']) !!}
             </div>
         </div>
     </div>
